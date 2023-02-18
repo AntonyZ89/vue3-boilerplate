@@ -1,13 +1,13 @@
-import type { RouteList } from "@/types";
 import i18n from "@/i18n";
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
 import { useGlobalStore } from "@/stores";
 import { ROUTE_NAMES } from "@/enums";
+import type { RouteList } from "./";
 
 const t = i18n.global.t;
 
-const routes: ComputedRef<Array<RouteList>> = computed(() => {
+export const enabledRoutes: ComputedRef<Array<RouteList>> = computed(() => {
   const store = useGlobalStore();
 
   const isAuth = Boolean(store.user);
@@ -33,5 +33,3 @@ const routes: ComputedRef<Array<RouteList>> = computed(() => {
 
   return list;
 });
-
-export { routes };

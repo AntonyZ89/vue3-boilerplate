@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { ToggleLanguage, ToggleTheme } from "@/components";
-import { routes } from "@/mock";
+import { enabledRoutes as routes } from "@/router";
 import { useGlobalStore } from "@/stores";
 import LoginButton from "./LoginButton.vue";
 import LogoutButton from "./LogoutButton.vue";

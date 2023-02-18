@@ -1,6 +1,7 @@
 import { ROUTE_NAMES } from "@/enums";
+import { getRoutePath } from "@/router";
 import type { UserType } from "@/types";
-import { getRoutePath, isUserType } from "@/types";
+import { isUserType } from "@/types";
 
 const USER_KEY = "user-credentials";
 
