@@ -1,6 +1,9 @@
-import type { LocaleObject } from "yup/lib/locale";
+import type { LocaleObject } from "@/types";
 import * as locale from "yup/lib/locale";
 
+/**
+ * Replaces all `${path}` by `{label}` and remove all "$" of "${}" to be compatible with vue-i18n
+ */
 function parse(locale: LocaleObject): LocaleObject {
   const result = Object.entries(locale).map(([key, value]) => {
     if (typeof value === "string") {
@@ -15,6 +18,16 @@ function parse(locale: LocaleObject): LocaleObject {
   return Object.fromEntries(result);
 }
 
-const fieldMessages: LocaleObject = parse(locale);
+const fieldMessages: LocaleObject = parse({
+  ...locale,
+  mixed: {
+    ...locale.mixed,
+    notType:
+      "{label} must be a `{type}` type, but the final value was: `{finalValue}`{cast}.{nullable}",
+    cast: "(cast from the value `{value}`)",
+    nullable:
+      'If "null" is intended as an empty value be sure to mark the schema as `.nullable()`',
+  },
+});
 
 export default fieldMessages;
