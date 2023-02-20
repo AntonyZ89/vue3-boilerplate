@@ -2,16 +2,18 @@
   <x-page
     class="flex items-center w-[300px] md:w-[400px] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
   >
-    <form class="flex-1" @submit="onSubmit">
+    <form class="flex-1" @submit.prevent="onSubmit">
       <h1 class="text-2xl md:text-3xl font-semibold text-center">Log In</h1>
 
       <x-input
+        id="username"
         class="block"
         :label="t('label.name')"
         v-model="valueName"
         :error="errors.name"
       />
       <x-input
+        id="password"
         :label="t('label.password')"
         v-model="valuePassword"
         :error="errors.password"
@@ -20,11 +22,16 @@
       />
 
       <div class="flex flex-col items-center">
-        <x-button class="w-2/6" @click="valueType = TYPES.LOGIN">
+        <x-button
+          data-test="login"
+          class="w-2/6"
+          @click="valueType = TYPES.LOGIN"
+        >
           {{ t("button.enter") }}
         </x-button>
         <span class="text-xs">{{ t("button.or") }}</span>
         <x-button
+          data-test="signup"
           class="text-xs font-normal bg-slate-400 py-1"
           @click="valueType = TYPES.SIGNUP"
           type="submit"

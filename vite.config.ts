@@ -1,3 +1,5 @@
+/// <reference types="vitest"/>
+
 import { fileURLToPath, URL } from "node:url";
 
 import { defineConfig } from "vite";
@@ -19,6 +21,14 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+  test: {
+    globals: true,
+    environment: "happy-dom",
+    coverage: {
+      all: true,
+      exclude: ["src/**/index.ts"],
     },
   },
 });
