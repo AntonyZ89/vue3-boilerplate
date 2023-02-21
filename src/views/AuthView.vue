@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { ROUTE_NAMES } from "@/enums";
 import { useGlobalStore, useUserStore } from "@/stores";
-import type { UserType, UserTypeRegister } from "@/types";
+import type { UserType } from "@/types";
 import { useField, useForm } from "vee-validate";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
@@ -105,9 +105,11 @@ function handleLogin(values: Pick<UserType, "name" | "password">) {
   }
 }
 
-function handleSignup(values: UserTypeRegister) {
+function handleSignup(values: typeof initialValues) {
   try {
-    const user = userStore.add(values);
+    const { type, ...data } = values;
+
+    const user = userStore.add(data);
     handleLogin(user);
   } catch (e: any) {
     setErrors({ name: (e as Error).message });

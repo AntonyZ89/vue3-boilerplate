@@ -13,8 +13,12 @@ module.exports = {
     ecmaVersion: "latest",
   },
   rules: {
+    "no-console": "error",
     "vue/multi-word-component-names": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { ignoreRestSiblings: true },
+    ],
   },
 };

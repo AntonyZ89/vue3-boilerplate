@@ -1,4 +1,5 @@
-import type { RouteList, UserType } from "@/types";
+import type { RouteList } from "@/router";
+import type { UserType } from "@/types";
 import { defineStore } from "pinia";
 import { useRoute } from "vue-router";
 
@@ -7,7 +8,9 @@ interface StateTree {
 }
 
 const useGlobalStore = defineStore("global", {
-  state: (): StateTree => ({}),
+  state: (): StateTree => ({
+    user: undefined,
+  }),
   actions: {
     isActivePage(url: RouteList["url"]) {
       const route = useRoute();

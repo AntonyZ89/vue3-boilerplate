@@ -23,7 +23,7 @@ function onSubmit(values) {
     delete result.password;
   }
 
-  userStore.update(globalStore.user!.id, values);
+  userStore.update(globalStore.user!.id, result);
 
   // TODO add notification
 }

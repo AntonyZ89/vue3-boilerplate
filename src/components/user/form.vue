@@ -1,12 +1,14 @@
 <template>
   <form class="flex items-center gap-2" @submit="onSubmit">
     <x-input
+      id="name"
       class="inline-block"
       :label="t('label.name')"
       v-model="valueName"
       :error="errors.name"
     />
     <x-input
+      id="password"
       class="inline-block"
       :label="t('label.password')"
       v-model="valuePassword"
@@ -14,7 +16,9 @@
       type="password"
     />
 
-    <x-button type="submit">{{ t("button.enter") }}</x-button>
+    <x-button type="submit" data-test="update">
+      {{ t("button.enter") }}
+    </x-button>
   </form>
 </template>
 
