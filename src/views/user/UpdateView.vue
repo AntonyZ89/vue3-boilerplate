@@ -30,7 +30,7 @@ function onSubmit(values: Partial<UserType>) {
     delete result.password;
   }
 
-  userStore.update(user.id, values);
+  userStore.update(user.id, result);
 
   // TODO add notification
 }

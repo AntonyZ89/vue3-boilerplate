@@ -1,5 +1,7 @@
 import { XButton, XInput, XPage } from "@/components";
+import { ROUTE_NAMES } from "@/enums";
 import i18n from "@/i18n";
+import { router } from "@/router";
 import { useGlobalStore } from "@/stores";
 import type { UserType } from "@/types";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -11,7 +13,7 @@ import { createTestingPinia } from "@pinia/testing";
 import { VueWrapper, config, flushPromises, mount } from "@vue/test-utils";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import waitForExpect from "wait-for-expect";
-import ProfileView from "./ProfileView.vue";
+import UpdateView from "./UpdateView.vue";
 
 config.global.plugins = [i18n];
 
@@ -36,10 +38,10 @@ const user: UserType = {
   password: "123456",
 };
 
-describe("ProfileView", () => {
-  let wrapper: VueWrapper<InstanceType<typeof ProfileView>>;
+describe("UpdateView", () => {
+  let wrapper: VueWrapper<InstanceType<typeof UpdateView>>;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     const pinia = createTestingPinia({
       stubActions: false,
       initialState: {
@@ -48,8 +50,13 @@ describe("ProfileView", () => {
       },
     });
 
-    wrapper = mount(ProfileView, {
-      global: { plugins: [pinia] },
+    await router.push({
+      name: ROUTE_NAMES.USER_UPDATE,
+      params: { id: user.id },
+    });
+
+    wrapper = mount(UpdateView, {
+      global: { plugins: [pinia, router] },
     });
   });
 
