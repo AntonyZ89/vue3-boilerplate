@@ -67,7 +67,7 @@
                   class="animate-spin text-xl text-white"
                   icon="fa-solid fa-circle-notch"
                 />
-                <template v-else>Confirmar</template>
+                <template v-else>{{ t("confirm") }}</template>
               </button>
 
               <button
@@ -82,7 +82,7 @@
                   class="animate-spin text-xl text-gray-400"
                   icon="fa-solid fa-circle-notch"
                 />
-                <template v-else>Cancelar</template>
+                <template v-else>{{ t("cancel") }}</template>
               </button>
             </slot>
           </div>
@@ -102,6 +102,7 @@ export default {
 import debounce from "just-debounce-it";
 import { ref } from "vue";
 import XDialogTitle from "./XDialogTitle.vue";
+import { useI18n } from "vue-i18n";
 
 const props = withDefaults(
   defineProps<{
@@ -114,6 +115,7 @@ const props = withDefaults(
   }>(),
   { cancel: undefined, confirm: undefined }
 );
+const { t } = useI18n();
 
 /**
  * Attributes
@@ -172,3 +174,16 @@ async function open() {
   opacity: 0;
 }
 </style>
+
+<i18n lang="json">
+{
+  "en-US": {
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "pt-BR": {
+    "confirm": "Confirmar",
+    "cancel": "Cancelar"
+  }
+}
+</i18n>

@@ -7,7 +7,7 @@
       >
         <font-awesome-icon icon="fa-solid fa-plus" />
 
-        Create
+        {{ t("button.create") }}
       </router-link>
     </div>
 
@@ -27,12 +27,34 @@
 <script setup lang="ts">
 import { ROUTE_NAMES } from "@/enums";
 import { useUserStore } from "@/stores";
-
-const headers = [
-  { text: "ID", value: "id" },
-  { text: "Name", value: "name" },
-  { text: "Actions", value: "actions", headerClass: "w-[10%]" },
-];
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
 const userStore = useUserStore();
+const { t } = useI18n();
+
+const headers = computed(() => [
+  { text: "ID", value: "id" },
+  { text: t("header.name"), value: "name" },
+  { text: t("header.actions"), value: "actions", headerClass: "w-[10%]" },
+]);
 </script>
+
+<i18n lang="json">
+{
+  "en-US": {
+    "button.create": "Create",
+    "header": {
+      "name": "Name",
+      "actions": "Actions"
+    }
+  },
+  "pt-BR": {
+    "button.create": "Criar",
+    "header": {
+      "name": "Nome",
+      "actions": "Ações"
+    }
+  }
+}
+</i18n>
