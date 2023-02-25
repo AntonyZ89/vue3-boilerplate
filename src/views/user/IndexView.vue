@@ -3,7 +3,7 @@
     <div class="pb-2 text-end">
       <router-link
         class="x-button bg-blue-500 hover:bg-blue-600"
-        :to="{ name: ROUTE_NAMES.USER_CREATE }"
+        :to="{ name: ROUTE_NAMES?.USER_CREATE }"
       >
         <font-awesome-icon icon="fa-solid fa-plus" />
 
