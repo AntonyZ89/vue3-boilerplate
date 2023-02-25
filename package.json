@@ -7,7 +7,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "test": "vitest",
+    "test": "vitest --no-watch",
+    "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "prepare": "husky install"
   },
