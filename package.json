@@ -1,5 +1,10 @@
 {
   "name": "template-vue3",
+  "author": {
+    "name": "Antony Gabriel",
+    "url": "https://github.com/antonyz89",
+    "email": "antonyz.dev@gmail.com"
+  },
   "scripts": {
     "dev": "vite --port 3000",
     "build": "run-p lint type-check build-only",

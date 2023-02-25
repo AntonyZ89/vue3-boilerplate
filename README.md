@@ -106,3 +106,5 @@ $ npm run test:cov
   - [ ] Coverage 100% (??%)
 - [x] Run tests on Pull Requests
 - [x] PR template
+- [ ] Server-side rendering
+  - [ ] SEO
