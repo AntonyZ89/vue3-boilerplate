@@ -39,8 +39,11 @@ export const routes: Readonly<RouteRecordRaw[]> = [
     component: () => import("@/views/ProfileView.vue"),
   },
   {
-    path: "/auth/",
+    path: "/auth",
     name: ROUTE_NAMES.AUTH,
     component: () => import("@/views/AuthView.vue"),
+    meta: {
+      layout: "empty",
+    },
   },
 ];
