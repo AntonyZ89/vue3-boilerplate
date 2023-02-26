@@ -11,8 +11,8 @@ import {
   XSwitch,
   XTooltip,
   XBadge,
-} from "components";
-// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+} from "@/components";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
@@ -28,7 +28,7 @@ declare module "@vue/runtime-core" {
     XSwitch: typeof XSwitch;
     XTooltip: typeof XTooltip;
     XBadge: typeof XBadge;
-    FontAwesomeIcon: any; // FIXME fix type
+    FontAwesomeIcon: typeof FontAwesomeIcon;
   }
 }
 
