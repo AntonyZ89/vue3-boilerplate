@@ -46,4 +46,9 @@ export const routes: Readonly<RouteRecordRaw[]> = [
       layout: "empty",
     },
   },
+  {
+    path: "/:pathMatch(.*)*",
+    name: ROUTE_NAMES.NOT_FOUND,
+    component: () => import("@/views/404.vue"),
+  },
 ];

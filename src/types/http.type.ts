@@ -20,15 +20,12 @@ export const DEFAULT_META: Meta = Object.freeze({
   "x-pagination-page-count": "1",
 });
 
-// TODO remover "assert" e retornar um [boolean] e refatorar todos que usam o [isMeta] e colocar dentro de um "if"
-export function isMeta(object: unknown): asserts object is Meta {
-  if (
+export function isMeta(object: unknown): object is Meta {
+  return (
     !object ||
     typeof object !== "object" ||
     !Object.keys(DEFAULT_META).every((key) => key in object)
-  ) {
-    throw Error("Invalid Meta");
-  }
+  );
 }
 
 export interface BaseParams {

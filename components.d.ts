@@ -11,7 +11,7 @@ import {
   XSwitch,
   XTooltip,
   XBadge,
-} from "@/components";
+} from "components";
 // import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 declare module "@vue/runtime-core" {

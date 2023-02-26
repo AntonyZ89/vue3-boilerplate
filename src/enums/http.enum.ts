@@ -5,4 +5,5 @@ export enum ROUTE_NAMES {
   USER_CREATE = "user_create",
   PROFILE = "profile",
   AUTH = "auth",
+  NOT_FOUND = "not_found",
 }
