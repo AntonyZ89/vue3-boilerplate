@@ -6,14 +6,21 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .ts,.js,.vue ."
+    "lint": "eslint --ext .ts,.js,.vue .",
+    "test": "vitest --no-watch",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.4.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxtjs/tailwindcss": "^6.4.1",
+    "@vitest/coverage-c8": "^0.29.2",
     "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/test-utils": "^2.3.0",
     "eslint": "^8.35.0",
+    "happy-dom": "^8.9.0",
     "nuxt": "^3.2.3",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vitest": "^0.29.2"
   }
 }
