@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import type { UserType } from '@/types';
-import { RoutesNamedLocationsResolved } from '~~/.nuxt/typed-router/__routes';
+import { RoutesNamedLocationsResolved } from '@/.nuxt/typed-router/__routes';
 
 interface StateTree {
   user?: UserType;

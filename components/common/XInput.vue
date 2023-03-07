@@ -33,7 +33,6 @@
 
 <script setup lang="ts">
 import type { Ref } from 'vue';
-import { StringHelper } from '@/helpers';
 
 type InputTypes =
   | 'button'

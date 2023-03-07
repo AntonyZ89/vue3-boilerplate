@@ -33,8 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import { StringHelper } from '@/helpers';
-
 type InputTypes =
   | 'button'
   | 'checkbox'

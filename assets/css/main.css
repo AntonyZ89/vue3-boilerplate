@@ -5,7 +5,7 @@ a {
   @apply text-blue-400;
 }
 
-#app {
+#__nuxt {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

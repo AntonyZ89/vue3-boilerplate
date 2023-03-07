@@ -41,8 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import { StringHelper } from '@/helpers';
-
 interface IProps {
   modelValue?: unknown;
   value?: string;

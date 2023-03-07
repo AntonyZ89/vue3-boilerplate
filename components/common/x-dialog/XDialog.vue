@@ -3,7 +3,7 @@
 
   <transition>
     <div
-      v-if="show || internalShow"
+      v-if="modelValue || show || internalShow"
       class="x-dialog fixed z-10 inset-0 overflow-y-auto"
     >
       <div
@@ -94,13 +94,11 @@
 
 <script setup lang="ts">
 import debounce from 'just-debounce-it';
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-import XDialogTitle from './XDialogTitle.vue';
 
 const props = withDefaults(
   defineProps<{
     type: 'info' | 'warn' | 'danger';
+    modelValue?: boolean;
     show?: boolean;
     title: string;
     message?: string;
@@ -109,6 +107,9 @@ const props = withDefaults(
   }>(),
   { cancel: undefined, confirm: undefined, message: undefined }
 );
+const emit = defineEmits<{
+  (e: 'update:modelValue', payload: boolean): void;
+}>();
 const { t } = useI18n();
 
 /**
@@ -126,11 +127,13 @@ const loadingConfirm = ref(false);
 const debounceCancel = debounce(() => {
   props.cancel && props.cancel();
   internalShow.value = false;
+  emit('update:modelValue', false);
   setTimeout(() => (loadingCancel.value = false), 1000); // prevent button click while modal disappear
 }, 300);
 const debounceConfirm = debounce(() => {
   props.confirm && props.confirm();
   internalShow.value = false;
+  emit('update:modelValue', false);
   setTimeout(() => (loadingConfirm.value = false), 1000); // prevent button click while modal disappear
 }, 300);
 
@@ -154,6 +157,7 @@ function confirm() {
 
 function open() {
   internalShow.value = true;
+  emit('update:modelValue', true);
 }
 </script>
 

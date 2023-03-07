@@ -23,8 +23,8 @@
             class="bg-slate-100 border-b dark:bg-gray-800 dark:border-gray-700"
           >
             <td
-              v-for="({ value, cellClass, transform }, index) in headers"
-              :key="index"
+              v-for="({ value, cellClass, transform }, headerIndex) in headers"
+              :key="headerIndex"
               :class="['py-2 px-6', cellClass]"
             >
               <slot :name="`item.${value}`" v-bind="{ item }">

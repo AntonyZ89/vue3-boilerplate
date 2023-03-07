@@ -1,4 +1,5 @@
 <template>
+  <NuxtLoadingIndicator />
   <client-only>
     <NavBar />
   </client-only>

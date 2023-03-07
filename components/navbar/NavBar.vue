@@ -40,9 +40,6 @@
 </template>
 
 <script setup lang="ts">
-import LoginButton from './LoginButton.vue';
-import LogoutButton from './LogoutButton.vue';
-import NavBarDropdown from './NavBarDropdown.vue';
 import { useGlobalStore } from '@/stores';
 import { RoutePathSchema } from '@/.nuxt/typed-router/__paths';
 

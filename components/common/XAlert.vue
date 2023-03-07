@@ -10,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
-
 interface Props {
   type?: 'danger' | 'warning' | 'info';
 }
