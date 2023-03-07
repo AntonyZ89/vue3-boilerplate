@@ -8,7 +8,6 @@
       <x-input
         id="username"
         v-model="valueName"
-        class="block"
         :label="t('label.name')"
         :error="errors.name"
       />
@@ -18,7 +17,6 @@
         :label="t('label.password')"
         :error="errors.password"
         type="password"
-        class="block"
       />
 
       <div class="flex flex-col items-center">
@@ -32,7 +30,7 @@
         <span class="text-xs">{{ t('button.or') }}</span>
         <x-button
           data-test="signup"
-          class="text-xs font-normal bg-slate-400 py-1"
+          class="text-xs font-normal bg-slate-400 py-1.5"
           type="submit"
           @click="valueType = TYPES.SIGNUP"
         >

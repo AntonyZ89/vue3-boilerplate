@@ -1,8 +1,5 @@
-@import "./tailwind.css";
-@import "./components/index.scss";
-
 a {
-  @apply text-blue-400;
+  color: theme('colors.blue.400');
 }
 
 #__nuxt {
@@ -13,7 +10,7 @@ a {
 
 b,
 strong {
-  @apply font-bold;
+  font-weight: theme('fontWeight.bold');
 }
 
 /* CODE */
@@ -29,29 +26,7 @@ code {
   text-shadow: 0 0 1px theme("colors.gray.400");
 }
 
-/* OPTIONAL */
-
-.optional {
-  @apply font-semibold text-purple-200;
-}
-
-/* PARAMETER */
-
-.parameter {
-  text-shadow: 0.5px 0.5px 1px theme("colors.gray.500");
-  @apply text-gray-800 dark:text-white font-medium;
-}
-
-.dark .parameter {
-  text-shadow: 0.5px 0.5px 1px theme("colors.gray.400");
-}
-
-/* VALUE */
-
-.value {
-  text-shadow: 0.5px 0.5px 1px theme("colors.red.500");
-  @apply text-red-400 font-medium;
-}
+/* INPUT */
 
 .required::after {
   content: "*";

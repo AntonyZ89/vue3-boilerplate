@@ -3,14 +3,13 @@
     <x-input
       id="name"
       v-model="valueName"
-      class="inline-block"
+      required
       :label="t('label.name')"
       :error="errors.name"
     />
     <x-input
       id="password"
       v-model="valuePassword"
-      class="inline-block"
       :label="t('label.password')"
       :error="errors.password"
       type="password"
