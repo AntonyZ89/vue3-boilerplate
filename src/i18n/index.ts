@@ -58,7 +58,13 @@ setLocale({
     notType: ({ label, type, value, originalValue }) => {
       const isCast = originalValue != null && originalValue !== value;
 
-      const params = { label, type, finalValue: printValue(value, true) };
+      const params: {
+        label: string;
+        type: string;
+        finalValue: string;
+        cast?: string;
+        nullable?: string;
+      } = { label, type, finalValue: printValue(value, true) };
 
       if (isCast) {
         params["cast"] =

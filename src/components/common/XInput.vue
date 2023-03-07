@@ -3,37 +3,36 @@
     <label
       v-if="label"
       :for="id"
-      :class="['text-left block leading-5', { required }]"
+      class="text-left block leading-5"
+      :class="{ required }"
     >
       {{ label }}
     </label>
     <input
-      :value="modelValue || value"
       :id="id"
-      :class="[
-        'w-full py-1 rounded-lg text-gray-900 block text-xs sm:text-sm disabled:bg-gray-200 disabled:text-gray-500',
-        { 'border-red-500': error },
-        fieldClass,
-      ]"
+      :value="modelValue || value"
+      class="x-input"
+      :required="required"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      :type="type"
+      v-bind="$attrs"
       @input="
         (e) => {
           $emit('input', e);
           $emit('update:modelValue', (e.target as HTMLInputElement).value);
         }
-      "
-      :placeholder="placeholder"
-      :readonly="readonly"
-      :type="type"
+        "
     />
-    <small class="text-red-500 block" v-if="!hideError">
+    <small v-if="!hideError" class="text-red-500 block">
       {{ error || "&nbsp;" }}
     </small>
   </div>
 </template>
 
 <script setup lang="ts">
-import { StringHelper } from "@/helpers";
 import type { Ref } from "vue";
+import { StringHelper } from "@/helpers";
 
 type InputTypes =
   | "button"
@@ -66,7 +65,6 @@ interface IProps {
   label?: string;
   value?: string | null;
   required?: boolean;
-  fieldClass?: string | Array<string | Object>;
   placeholder?: string;
   readonly?: boolean;
   type?: InputTypes;
@@ -82,9 +80,19 @@ interface IEmit {
 
 withDefaults(defineProps<IProps>(), {
   id: () => StringHelper.randomString(),
+  modelValue: "",
   value: "",
   type: "text",
+  label: undefined,
+  placeholder: undefined,
+  error: undefined,
 });
 
 defineEmits<IEmit>();
+</script>
+
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
 </script>

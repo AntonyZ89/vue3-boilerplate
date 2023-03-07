@@ -4,7 +4,7 @@
   <transition>
     <div
       class="x-dialog fixed z-10 inset-0 overflow-y-auto"
-      v-if="show || internalShow"
+      v-if="modelValue || show || internalShow"
     >
       <div
         class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
@@ -107,6 +107,7 @@ import { useI18n } from "vue-i18n";
 const props = withDefaults(
   defineProps<{
     type: "info" | "warn" | "danger";
+    modelValue?: boolean;
     show?: boolean;
     title: string;
     message?: string;
@@ -115,6 +116,9 @@ const props = withDefaults(
   }>(),
   { cancel: undefined, confirm: undefined }
 );
+const emit = defineEmits<{
+  (e: "update:modelValue", payload: boolean): void;
+}>();
 const { t } = useI18n();
 
 /**
@@ -132,11 +136,13 @@ const loadingConfirm = ref(false);
 const debounceCancel = debounce(() => {
   props.cancel && props.cancel();
   internalShow.value = false;
+  emit("update:modelValue", false);
   setTimeout(() => (loadingCancel.value = false), 1000); // prevent button click while modal disappear
 }, 300);
 const debounceConfirm = debounce(() => {
   props.confirm && props.confirm();
   internalShow.value = false;
+  emit("update:modelValue", false);
   setTimeout(() => (loadingConfirm.value = false), 1000); // prevent button click while modal disappear
 }, 300);
 
@@ -160,6 +166,7 @@ async function confirm() {
 
 async function open() {
   internalShow.value = true;
+  emit("update:modelValue", true);
 }
 </script>
 

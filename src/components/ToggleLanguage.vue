@@ -2,7 +2,7 @@
   <Menu as="div" class="relative inline-block text-left">
     <MenuButton :class="dropdownClasses">
       {{ currentLanguage }}
-      <ChevronDownIcon class="ml-2 h-5 w-5" aria-hidden="true" />
+      <font-awesome-icon icon="fa-solid fa-chevron-down" class="ml-2 text-xs" />
     </MenuButton>
 
     <transition
@@ -41,7 +41,6 @@
 <script setup lang="ts">
 import { changeLocale, type I18N_TYPE } from "@/i18n";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 

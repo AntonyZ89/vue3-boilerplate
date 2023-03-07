@@ -2,16 +2,15 @@
   <form class="flex items-center gap-2" @submit="onSubmit">
     <x-input
       id="name"
-      class="inline-block"
-      :label="t('label.name')"
       v-model="valueName"
+      required
+      :label="t('label.name')"
       :error="errors.name"
     />
     <x-input
       id="password"
-      class="inline-block"
-      :label="t('label.password')"
       v-model="valuePassword"
+      :label="t('label.password')"
       :error="errors.password"
       type="password"
     />

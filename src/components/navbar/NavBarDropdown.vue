@@ -39,8 +39,8 @@
 </template>
 
 <script setup lang="ts">
+import type { RouteList } from "@/router";
 import { useGlobalStore } from "@/stores";
-import type { RouteList } from "@/types";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 
 interface Props {

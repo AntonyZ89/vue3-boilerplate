@@ -1,12 +1,19 @@
 <template>
-  <div class="inline-block p-1">
-    <MoonIcon class="w-6 h-6 text-gray-500 dark:text-gray-400 inline" />
+  <div class="p-1 inline-flex items-center">
+    <font-awesome-icon
+      icon="fa-solid fa-moon"
+      size="xl"
+      class="text-gray-500 dark:text-gray-400"
+    />
     <x-switch v-model="isLightTheme" />
-    <SunIcon class="w-6 h-6 text-yellow-500 dark:text-yellow-400 inline" />
+    <font-awesome-icon
+      icon="fa-solid fa-sun"
+      size="xl"
+      class="text-yellow-500 dark:text-yellow-400"
+    />
   </div>
 </template>
 <script setup lang="ts">
-import { MoonIcon, SunIcon } from "@heroicons/vue/24/solid";
 import { onBeforeMount, ref, watch } from "vue";
 
 const isLightTheme = ref<undefined | boolean>(undefined);

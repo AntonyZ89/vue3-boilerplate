@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import { UserForm } from "@/components";
 import { useGlobalStore, useUserStore } from "@/stores";
+import type { UserType } from "@/types";
 
 const globalStore = useGlobalStore();
 const userStore = useUserStore();
@@ -15,7 +16,7 @@ const userStore = useUserStore();
  * Functions
  */
 
-function onSubmit(values) {
+function onSubmit(values: Omit<UserType, "id">) {
   const result: Partial<typeof values> = { ...values };
 
   // prevent empty password

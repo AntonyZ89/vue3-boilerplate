@@ -32,7 +32,11 @@
             :disabled="!canPrev"
           >
             <span class="sr-only">Anterior</span>
-            <ChevronLeftIcon class="h-5 w-5" aria-hidden="true" />
+            <font-awesome-icon
+              icon="fa-solid fa-chevron-left"
+              class="text-xs px-2"
+              aria-hidden="true"
+            />
           </button>
 
           <template v-for="(page, index) in pages" :key="index">
@@ -57,7 +61,11 @@
             :disabled="!canNext"
           >
             <span class="sr-only">Próximo</span>
-            <ChevronRightIcon class="h-5 w-5" aria-hidden="true" />
+            <font-awesome-icon
+              icon="fa-solid fa-chevron-right"
+              class="text-xs px-2"
+              aria-hidden="true"
+            />
           </button>
         </nav>
       </div>
@@ -67,7 +75,6 @@
 
 <script setup lang="ts">
 import type { Meta } from "@/types";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/20/solid";
 import { computed } from "vue";
 
 const props = defineProps<{
