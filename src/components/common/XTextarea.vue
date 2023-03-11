@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block" :class="$attrs['class']">
+  <div>
     <label
       v-if="label"
       :for="id"
@@ -9,61 +9,27 @@
     </label>
     <textarea
       v-bind="$attrs"
-      :value="modelValue || value"
       :id="id"
-      :class="[
-        'py-1 rounded-lg text-gray-900 block text-xs sm:text-sm disabled:bg-gray-200 disabled:text-gray-500',
-        { 'border-red-500': error },
-        fieldClass,
-      ]"
+      :value="modelValue || value"
+      class="x-textarea"
+      :class="{ has_error: error }"
+      :placeholder="placeholder"
+      :readonly="readonly"
       @input="
         (e) => {
           $emit('input', e);
           $emit('update:modelValue', (e.target as HTMLInputElement).value);
         }
       "
-      :placeholder="placeholder"
-      :readonly="readonly"
-      :type="type"
     />
-    <small class="text-red-500 block" v-if="!hideError">
+    <small v-if="!hideError" class="text-red-500 block">
       {{ error || "&nbsp;" }}
     </small>
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <script setup lang="ts">
 import { StringHelper } from "@/helpers";
-
-type InputTypes =
-  | "button"
-  | "checkbox"
-  | "color"
-  | "date"
-  | "datetime-local"
-  | "email"
-  | "file"
-  | "hidden"
-  | "image"
-  | "month"
-  | "number"
-  | "password"
-  | "radio"
-  | "range"
-  | "reset"
-  | "search"
-  | "submit"
-  | "tel"
-  | "text"
-  | "time"
-  | "url"
-  | "week";
 
 interface IProps {
   modelValue?: string | number | undefined;
@@ -72,10 +38,8 @@ interface IProps {
   label?: string;
   value?: string;
   required?: boolean;
-  fieldClass?: string | Array<string | Object>;
   placeholder?: string;
   readonly?: boolean;
-  type?: InputTypes;
   error?: string | undefined;
 
   hideError?: boolean;
@@ -88,9 +52,18 @@ interface IEmit {
 
 withDefaults(defineProps<IProps>(), {
   id: () => StringHelper.randomString(),
+  modelValue: "",
   value: "",
-  type: "text",
+  label: undefined,
+  placeholder: undefined,
+  error: undefined,
 });
 
 defineEmits<IEmit>();
+</script>
+
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
 </script>

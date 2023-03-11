@@ -12,6 +12,7 @@
       :id="id"
       :value="modelValue || value"
       class="x-input"
+      :class="{ has_error: error }"
       :required="required"
       :placeholder="placeholder"
       :readonly="readonly"
