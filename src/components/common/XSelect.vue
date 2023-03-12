@@ -10,16 +10,14 @@
       <span v-if="selectedItem">{{ showTitle(selectedItem) }}</span>
       <span v-else class="text-gray-500">{{ placeholder || "&nbsp;" }}</span>
 
-      <client-only>
-        <span class="flex gap-2 items-center">
-          <font-awesome-icon
-            icon="fa-solid fa-circle-xmark"
-            class="text-gray-400 hover:text-gray-500 transition-colors cursor-pointer"
-            @click.prevent="clearSelection"
-          />
-          <font-awesome-icon icon="fa-solid fa-chevron-down" />
-        </span>
-      </client-only>
+      <span class="flex gap-2 items-center">
+        <font-awesome-icon
+          icon="fa-solid fa-circle-xmark"
+          class="text-gray-400 hover:text-gray-500 transition-colors cursor-pointer"
+          @click.prevent="clearSelection"
+        />
+        <font-awesome-icon icon="fa-solid fa-chevron-down" />
+      </span>
     </ListboxButton>
 
     <transition
@@ -108,8 +106,8 @@ const props = withDefaults(defineProps<IProps>(), {
   label: undefined,
   placeholder: undefined,
   error: undefined,
-  itemTitle: undefined,
-  itemValue: undefined,
+  itemTitle: "title",
+  itemValue: "value",
 });
 
 const emit = defineEmits<IEmit>();
