@@ -10,10 +10,10 @@
       <span v-if="selectedItem">{{ showTitle(selectedItem) }}</span>
       <span v-else class="text-gray-500">{{ placeholder || "&nbsp;" }}</span>
 
-      <span class="flex gap-2 items-center">
+      <span class="flex items-center gap-2">
         <font-awesome-icon
           icon="fa-solid fa-circle-xmark"
-          class="text-gray-400 hover:text-gray-500 transition-colors cursor-pointer"
+          class="cursor-pointer text-gray-400 transition-colors hover:text-gray-500"
           @click.prevent="clearSelection"
         />
         <font-awesome-icon icon="fa-solid fa-chevron-down" />
@@ -57,7 +57,7 @@
         </slot>
       </ListboxOptions>
     </transition>
-    <small v-if="!hideError" class="text-red-500 block">
+    <small v-if="!hideError" class="block text-red-500">
       {{ error || "&nbsp;" }}
     </small>
   </Listbox>
@@ -73,7 +73,7 @@ import {
 } from "@headlessui/vue";
 import { ref, watch } from "vue";
 
-type Value = string | number | boolean | Record<string, any> | null;
+type Value = string | number | boolean | Record<string, any> | null | undefined;
 
 interface IProps {
   modelValue?: string | Value;
@@ -116,7 +116,7 @@ const emit = defineEmits<IEmit>();
  * Properties
  */
 
-const selectedItem = ref<Value>();
+const selectedItem = ref<Value>(props.modelValue);
 
 /**
  * Functions
@@ -129,6 +129,22 @@ function clearSelection() {
 function showTitle(item: Value) {
   if (props.itemTitle && item !== null && typeof item === "object") {
     return item[props.itemTitle];
+  }
+
+  const selected = props.items.find((i) => {
+    if (i && typeof i === "object") {
+      return String(i[props.itemValue]) === String(item);
+    }
+
+    return i === item;
+  });
+
+  if (selected && typeof selected === "object") {
+    return selected[props.itemTitle];
+  }
+
+  if (selected !== undefined) {
+    return selected;
   }
 
   return item;
@@ -151,6 +167,11 @@ watch(selectedItem, (value) =>
     "update:modelValue",
     props.returnObject || value === undefined ? value : showValue(value)
   )
+);
+
+watch(
+  () => props.modelValue,
+  (value) => (selectedItem.value = value)
 );
 </script>
 
