@@ -3,11 +3,11 @@
 
   <transition>
     <div
-      class="x-dialog fixed z-10 inset-0 overflow-y-auto"
+      class="x-dialog fixed inset-0 z-10 overflow-y-auto"
       v-if="modelValue || show || internalShow"
     >
       <div
-        class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+        class="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0"
       >
         <div
           class="fixed inset-0 transition-opacity"
@@ -19,13 +19,13 @@
 
         <!-- This element is to trick the browser into centering the modal contents. -->
         <span
-          class="hidden sm:inline-flex sm:align-middle sm:h-screen"
+          class="hidden sm:inline-flex sm:h-screen sm:align-middle"
           aria-hidden="true"
         >
           &#8203;
         </span>
         <div
-          class="x-dialog-modal inline-flex flex-col align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-20 sm:align-top sm:max-w-lg sm:w-full max-h-[85vh]"
+          class="x-dialog-modal inline-flex max-h-[85vh] transform flex-col overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-20 sm:w-full sm:max-w-lg sm:align-top"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"
@@ -34,14 +34,14 @@
           <XDialogTitle :type="type" :title="title" />
 
           <div
-            class="x-dialog-content bg-green-30 flex-1 overflow-y-auto text-gray-500 text-sm sm:items-start px-4 py-3 h-full"
+            class="x-dialog-content bg-green-30 h-full flex-1 overflow-y-auto px-4 py-3 text-sm text-gray-500 sm:items-start"
           >
             <p v-if="message">{{ message }}</p>
             <slot v-else />
           </div>
 
           <div
-            class="x-dialog-footer bg-slate-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+            class="x-dialog-footer bg-slate-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6"
           >
             <slot
               name="footer"
@@ -59,7 +59,7 @@
               <button
                 type="button"
                 @click="confirm"
-                class="w-full transition-colors inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-400 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                class="inline-flex w-full justify-center rounded-md border border-transparent bg-green-400 px-4 py-2 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:ml-3 sm:w-auto sm:text-sm"
                 :disabled="loadingCancel"
               >
                 <font-awesome-icon
@@ -74,7 +74,7 @@
                 v-if="cancel !== false"
                 type="button"
                 @click="close"
-                class="mt-3 w-full transition-colors inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 :disabled="loadingConfirm"
               >
                 <font-awesome-icon

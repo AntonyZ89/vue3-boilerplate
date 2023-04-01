@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'rounded-lg p-2 border-2 dark:border border-slate-800 text-center',
+      'rounded-lg border-2 border-slate-800 p-2 text-center dark:border',
       colorProps,
     ]"
   >

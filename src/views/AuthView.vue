@@ -1,9 +1,9 @@
 <template>
   <x-page
-    class="flex items-center w-[300px] md:w-[400px] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+    class="fixed top-1/2 left-1/2 flex w-[300px] -translate-x-1/2 -translate-y-1/2 items-center md:w-[400px]"
   >
     <form class="flex-1" @submit.prevent="onSubmit">
-      <h1 class="text-2xl md:text-3xl font-semibold text-center">Log In</h1>
+      <h1 class="text-center text-2xl font-semibold md:text-3xl">Log In</h1>
 
       <x-input
         id="username"
@@ -30,7 +30,7 @@
         <span class="text-xs">{{ t("button.or") }}</span>
         <x-button
           data-test="signup"
-          class="text-xs font-normal bg-slate-400 py-1.5"
+          class="bg-slate-400 py-1.5 text-xs font-normal"
           @click="valueType = TYPES.SIGNUP"
           type="submit"
         >

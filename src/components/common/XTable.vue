@@ -1,8 +1,8 @@
 <template>
-  <div class="x-table overflow-x-auto relative">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+  <div class="x-table relative overflow-x-auto">
+    <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
       <thead
-        class="text-xs text-gray-700 uppercase bg-slate-200 dark:bg-gray-700 dark:text-gray-400"
+        class="bg-slate-300 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
           <th
@@ -20,7 +20,7 @@
           <tr
             v-for="(item, index) in items"
             :key="index"
-            class="bg-slate-100 border-b dark:bg-gray-800 dark:border-gray-700"
+            class="border-b bg-slate-100 dark:border-gray-700 dark:bg-gray-800"
           >
             <td
               v-for="({ value, cellClass, transform }, headerIndex) in headers"
@@ -38,7 +38,7 @@
         <template v-else>
           <tr>
             <td
-              class="py-2 px-6 bg-gray-200 text-gray-600"
+              class="bg-gray-200 py-2 px-6 text-gray-600"
               :colspan="headers.length"
             >
               Nenhum dado encontrado.

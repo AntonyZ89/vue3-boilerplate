@@ -1,5 +1,5 @@
 <template>
-  <div class="x-badge text-xs inline-block px-2 py-0.5 rounded-full">
+  <div class="x-badge inline-block rounded-full px-2 py-0.5 text-xs">
     <slot />
   </div>
 </template>

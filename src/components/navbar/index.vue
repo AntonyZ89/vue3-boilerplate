@@ -1,12 +1,12 @@
 <template>
   <nav
-    class="p-3 bg-slate-400 dark:bg-gray-700 flex items-center gap-2 flex-row"
+    class="flex flex-row items-center gap-2 bg-slate-400 p-3 dark:bg-gray-700"
   >
     <!-- Mobile -->
     <NavBarDropdown :routes="routes" class="sm:w-[200px] md:hidden" />
 
     <!-- Desktop -->
-    <ul class="gap-3 hidden md:flex">
+    <ul class="hidden gap-3 md:flex">
       <li
         class="flex items-center"
         v-for="({ name, url }, index) in routes"
@@ -27,7 +27,7 @@
       <div class="inline-block space-x-2">
         <font-awesome-icon icon="fa-solid fa-user" class="text-lg text-white" />
 
-        <span class="font-medium text-white hidden sm:inline text-base">
+        <span class="hidden text-base font-medium text-white sm:inline">
           {{ globalStore.user.name }}
         </span>
       </div>

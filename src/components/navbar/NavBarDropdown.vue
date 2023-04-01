@@ -26,7 +26,7 @@
               :class="[
                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-500',
                 'block px-4 py-2 text-sm',
-                { 'active text-gray-900 font-medium': isActivePage(url) },
+                { 'active font-medium text-gray-900': isActivePage(url) },
               ]"
             >
               {{ name }}

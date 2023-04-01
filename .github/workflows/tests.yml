@@ -5,9 +5,9 @@ name: Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   tests:
@@ -24,9 +24,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
-      - name: Tests unit 
+      - name: Tests unit
         run: npm test
       # - name: Tests e2e # TODO
       #   run: npm run test:e2e

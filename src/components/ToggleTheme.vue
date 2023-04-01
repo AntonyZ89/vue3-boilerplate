@@ -1,5 +1,5 @@
 <template>
-  <div class="p-1 inline-flex items-center">
+  <div class="inline-flex items-center p-1">
     <font-awesome-icon
       icon="fa-solid fa-moon"
       size="xl"

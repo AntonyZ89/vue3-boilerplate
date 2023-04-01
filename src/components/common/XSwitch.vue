@@ -1,17 +1,17 @@
 <template>
   <div
-    class="relative inline-block w-10 mx-2 align-middle select-none transition duration-200 ease-in cursor-pointer"
+    class="relative mx-2 inline-block w-10 cursor-pointer select-none align-middle transition duration-200 ease-in"
     @click="(e) => $emit('update:modelValue', !modelValue)"
   >
     <div
       :class="[
         { 'translate-x-[65%]': modelValue },
-        `transition-transform duration-200 absolute block w-6 h-6 rounded-full bg-gray-400 border-white dark:border-gray-500 dark:bg-gray-400 border-4 z-[1]`,
+        `absolute z-[1] block h-6 w-6 rounded-full border-4 border-white bg-gray-400 transition-transform duration-200 dark:border-gray-500 dark:bg-gray-400`,
       ]"
     />
     <label
       for="toggle"
-      class="toggle-label block overflow-hidden h-6 rounded-full bg-white dark:bg-gray-500 cursor-pointer"
+      class="toggle-label block h-6 cursor-pointer overflow-hidden rounded-full bg-white dark:bg-gray-500"
     ></label>
   </div>
 </template>

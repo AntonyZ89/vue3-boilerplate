@@ -21,9 +21,10 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] Test B
 
 **Test Configuration**:
-* Node version:
-* Browser name and version:
-* Operating System and version (desktop or mobile):
+
+- Node version:
+- Browser name and version:
+- Operating System and version (desktop or mobile):
 
 # Checklist:
 

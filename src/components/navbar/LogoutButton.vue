@@ -7,7 +7,7 @@
     <template #action="{ on }">
       <x-button
         data-test="logout-button"
-        class="bg-slate-500 text-base text-white py-1 rounded-lg hover:bg-slate-600 ml-3 space-x-1"
+        class="ml-3 space-x-1 rounded-lg bg-slate-500 py-1 text-base text-white hover:bg-slate-600"
         v-on="on"
       >
         <font-awesome-icon icon="fa-solid fa-right-from-bracket" />

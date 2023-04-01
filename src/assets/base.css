@@ -22,7 +22,7 @@
   --vt-c-text-light-1: theme(colors.gray.600);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: theme(colors.gray.800);
+  --vt-c-text-dark-2: theme(colors.gray.400);
 }
 
 /* semantic color variables for this project */

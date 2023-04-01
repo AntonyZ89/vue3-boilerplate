@@ -1,6 +1,6 @@
 <template>
   <x-button
-    class="bg-purple-500 text-base text-white py-1 hover:bg-purple-600"
+    class="bg-purple-500 py-1 text-base text-white hover:bg-purple-600"
     @click="openUrl"
   >
     <font-awesome-icon icon="fa-solid fa-right-to-bracket" />

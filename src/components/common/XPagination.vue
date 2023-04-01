@@ -26,7 +26,7 @@
           <button
             :class="[
               'relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20',
-              { 'cursor-not-allowed text-gray-300 border-gray-200': !canPrev },
+              { 'cursor-not-allowed border-gray-200 text-gray-300': !canPrev },
             ]"
             @click="prev"
             :disabled="!canPrev"
@@ -34,7 +34,7 @@
             <span class="sr-only">Anterior</span>
             <font-awesome-icon
               icon="fa-solid fa-chevron-left"
-              class="text-xs px-2"
+              class="px-2 text-xs"
               aria-hidden="true"
             />
           </button>
@@ -55,7 +55,7 @@
           <button
             :class="[
               'relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20',
-              { 'cursor-not-allowed text-gray-300 border-gray-200': !canNext },
+              { 'cursor-not-allowed border-gray-200 text-gray-300': !canNext },
             ]"
             @click="next"
             :disabled="!canNext"
@@ -63,7 +63,7 @@
             <span class="sr-only">Próximo</span>
             <font-awesome-icon
               icon="fa-solid fa-chevron-right"
-              class="text-xs px-2"
+              class="px-2 text-xs"
               aria-hidden="true"
             />
           </button>

@@ -19,7 +19,7 @@
           menuItemsClasses,
         ]"
       >
-        <div class="py-1 w-16">
+        <div class="w-16 py-1">
           <MenuItem
             v-slot="{ active }"
             v-for="(icon, key) in languages"

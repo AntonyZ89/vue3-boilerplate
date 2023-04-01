@@ -3,7 +3,7 @@
     <label
       v-if="label"
       :for="id"
-      class="text-left block leading-5"
+      class="block text-left leading-5"
       :class="{ required }"
     >
       {{ label }}
@@ -25,7 +25,7 @@
         }
         "
     />
-    <small v-if="!hideError" class="text-red-500 block">
+    <small v-if="!hideError" class="block text-red-500">
       {{ error || "&nbsp;" }}
     </small>
   </div>

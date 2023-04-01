@@ -6,12 +6,12 @@ import { Footer, NavBar } from "@/components";
   <NavBar />
 
   <div class="h-full flex-1">
-    <main class="space-y-3 container py-3 px-3 sm:px-auto mx-auto">
+    <main class="sm:px-auto container mx-auto space-y-3 py-3 px-3">
       <RouterView />
     </main>
 
     <notifications
-      class="mr-2 mt-20 sm:mt-16 min-w-[200px] max-w-sm"
+      class="mr-2 mt-20 min-w-[200px] max-w-sm sm:mt-16"
       style="width: auto"
       group="top-right"
       position="top right"
