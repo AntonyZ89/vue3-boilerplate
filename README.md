@@ -35,6 +35,7 @@ Declare all global components on `components.d.ts` and `Restart Vue Server`
    - Vue-i18n
    - Vue-Router
 - Eslint
+- Prettier
 - Vitest
 - Husky
 - Github Actions
@@ -72,10 +73,11 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint with [ESLint](https://eslint.org/) and [Prettier](https://prettier.io)
 
 ```sh
 npm run lint
+npm run prettier
 ```
 
 ## Test
